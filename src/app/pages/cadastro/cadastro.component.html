@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Cadastro</h2>
+<mat-dialog-content class="mat-typography">
+    <form class="form" name="formulario" >
+      <input type="nome" class="nome" class="login" placeholder="Nome" [(ngModel)]="dados.nome" [ngModelOptions]="{standalone: true}" />
+      <input type="email" id="email" class="login" placeholder="E-mail" [(ngModel)]="dados.email" [ngModelOptions]="{standalone: true}" />
+      <input type="cpf" id="cpf" class="login" placeholder="CPF" [(ngModel)]="dados.cpf" [ngModelOptions]="{standalone: true}" />
+      <input type="telefone" id="telefone" class="login" placeholder="Telefone" [(ngModel)]="dados.telefone" [ngModelOptions]="{standalone: true}" />
+      <input type="date" id="dataNascimento" class="login" placeholder="Data de Nascimento" [(ngModel)]="dados.dataNascimento" [ngModelOptions]="{standalone: true}" />
+      <select id="sexo" class="login" placeholder="Sexo" [(ngModel)]="dados.sexo" [ngModelOptions]="{standalone: true}">
+        <option value="" disabled selected>Selecione o Sexo</option>
+        <option value="M">Masculino</option>
+        <option value="F">Feminino</option>
+      </select>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="inserir()">Enviar</button>
+</mat-dialog-actions>
+

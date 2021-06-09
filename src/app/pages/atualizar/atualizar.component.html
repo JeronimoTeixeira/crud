@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Atualizar</h2>
+<mat-dialog-content class="mat-typography">
+    <form class="form" name="formulario" >
+      <input type="text" id="nome" class="login" placeholder="Nome" [(ngModel)]="dadosDialog.nome" [ngModelOptions]="{standalone: true}" />
+      <input type="text" id="email" class="login" placeholder="E-mail" [(ngModel)]="dadosDialog.email" [ngModelOptions]="{standalone: true}" />
+      <input type="text" id="cpf" class="login" placeholder="CPF" [(ngModel)]="dadosDialog.cpf" [ngModelOptions]="{standalone: true}" />
+      <input type="text" id="telefone" class="login" placeholder="Telefone" [(ngModel)]="dadosDialog.telefone" [ngModelOptions]="{standalone: true}" />
+      <input type="date" id="dataNascimento" class="login" placeholder="Data Nascimento" [(ngModel)]="dadosDialog.dataNascimento" [ngModelOptions]="{standalone: true}" />
+      <select id="sexo" class="login" placeholder="Sexo" [(ngModel)]="dadosDialog.sexo" [ngModelOptions]="{standalone: true}">
+        <option value="M">Masculino</option>
+        <option value="F">Feminino</option>
+      </select>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="atualizar()">Enviar</button>
+</mat-dialog-actions>
+
