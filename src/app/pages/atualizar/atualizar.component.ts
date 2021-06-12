@@ -41,6 +41,9 @@ export class AtualizarComponent implements OnInit {
   atualizar(){
     this.crud.atualizar(this.dadosDialog).subscribe(response =>{
       this.notificacao.sucesso('ATUALIZAÇÃO FEITA COM SUCESSO', 'SUCESSO')
+      setTimeout(() =>{
+        location.reload()
+      },2000)
     }, error=>{
       this.notificacao.erro(error.statusText,'ERRO')
     })

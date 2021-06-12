@@ -33,10 +33,15 @@ export class CadastroComponent implements OnInit {
     // var ano  = this.dados.dataNascimento.split("/")[2];
 
     // this.dados.dataNascimento = ano + '-' + ("0"+mes).slice(-2) + '-' + ("0"+dia).slice(-2);
-
+    console.log(this.dados)
     this.crud.inserir(this.dados).subscribe(response =>{
-      this.notificacao.sucesso('CADASTRO FEITA COM SUCESSO', 'SUCESSO')
+
+      this.notificacao.sucesso('CADASTRO FEITO COM SUCESSO', 'SUCESSO')
+      setTimeout(() =>{
+        location.reload()
+      },2000)
     }, error=>{
+      // console.log(error)
       this.notificacao.erro(error.statusText,'ERRO')
     })
   }

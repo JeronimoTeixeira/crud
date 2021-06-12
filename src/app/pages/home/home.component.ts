@@ -29,12 +29,13 @@ export class HomeComponent implements OnInit {
     private notificacao: NotificacaoService,) {}
 
   ngOnInit(): void {
-    // this.crud.consulta().subscribe(response => {
-    //   this.dataSource = response.data
-    // })
-    this.dataSource = [
-      {id: 1, nome: 'Teste', cpf:'31832045846', email:'geteixeira095@gmail.com', telefone:'85991787430', sexo:'F', dataNascimento:'24/07/1999'}
-    ];
+    this.crud.consulta().subscribe(response => {
+      this.dataSource = response
+      console.log(this.dataSource)
+    })
+    // this.dataSource = [
+    //   {id: 1, nome: 'Teste', cpf:'31832045846', email:'geteixeira095@gmail.com', telefone:'85991787430', sexo:'F', dataNascimento:'24/07/1999'}
+    // ];
 
   }
 
@@ -51,6 +52,9 @@ export class HomeComponent implements OnInit {
   delete(id:Number){
     this.crud.deletar({'id':id}).subscribe(response =>{
       this.notificacao.sucesso('REMOÇÃO FEITA COM SUCESSO', 'SUCESSO')
+      setTimeout(() =>{
+        location.reload()
+      },2000)
     }, error =>{
       this.notificacao.erro(error.statusText, 'ERRO')
     });
